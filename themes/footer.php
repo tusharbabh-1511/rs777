@@ -209,39 +209,60 @@ function GetAllMarketInfo()
     });
 }
 
-function compareTimes(timeStr) {
-    // Step 1: Parse the time string (06:30 PM) to a Date object
+function parseTime(timeStr) {
+    // Parse the time string like "05:25 PM" into 24-hour format
     const timeParts = timeStr.match(/(\d{1,2}):(\d{2})\s([APM]{2})/);
     if (!timeParts) {
         console.error('Invalid time format');
-        return;
+        return null;
     }
-    
+
     let hours = parseInt(timeParts[1]);
     const minutes = parseInt(timeParts[2]);
     const period = timeParts[3];
 
-    // Convert 12-hour format to 24-hour format
+    // Convert to 24-hour format
     if (period === 'PM' && hours < 12) hours += 12;
     if (period === 'AM' && hours === 12) hours = 0;
 
-    // Get the current time
+    return hours * 60 + minutes;  // Return time in minutes since midnight
+}
+
+function checkTimeStatus(startTime, endTime) {
+    // Step 1: Parse the times
+    const start = parseTime(startTime); // "03:25 PM"
+    const end = parseTime(endTime);     // "05:25 PM"
+
+    if (start === null || end === null) return;
+
+    // Step 2: Get current time in minutes
     const now = new Date();
-    const currentHours = now.getHours();
-    const currentMinutes = now.getMinutes();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-    // Step 2: Compare times
-    const timeInMinutes = hours * 60 + minutes;  // Convert target time to minutes
-    const currentTimeInMinutes = currentHours * 60 + currentMinutes;  // Convert current time to minutes
-
-    if (currentTimeInMinutes < timeInMinutes) {
-        console.log('Current time is earlier than the specified time');
-    } else if (currentTimeInMinutes > timeInMinutes) {
-        console.log('Current time is later than the specified time');
+    // Step 3: Compare current time with start and end times
+    if (start < end) {
+        // The time range is within a single day (e.g., "03:25 PM" to "05:25 PM")
+        if (currentMinutes >= start && currentMinutes <= end) {
+            console.log('Current time is between the two times.');
+        } else if (currentMinutes < start) {
+            console.log('Current time is before the start time.');
+        } else {
+            console.log('Current time is after the end time.');
+        }
     } else {
-        console.log('The current time is equal to the specified time');
+        // The time range spans midnight (e.g., "10:00 PM" to "02:00 AM")
+        if (currentMinutes >= start || currentMinutes <= end) {
+            console.log('Current time is between the two times.');
+        } else if (currentMinutes < start) {
+            console.log('Current time is after the end time.');
+        } else {
+            console.log('Current time is before the start time.');
+        }
     }
 }
+
+// Example usage:
+// checkTimeStatus("03:25 PM", "05:25 PM");
 
 $(document).ready(function(){
     console.log("footer code running...");
