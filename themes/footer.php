@@ -4,21 +4,14 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row chart-links">
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3" id="footerJodiChartLink">
                     <h3>Jodi Charts</h3><br/>
-                    <div>
-                        <a href="radha-morning/jodi.html">RADHA MORNING</a><br/>
-                    </div>
+                    
                     
                 </div>
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3" id="footerPanaChartLink">
                     <h3>Pana Charts</h3><br/>
-                    <div>
-                        <a href="radha-morning/pana.html">RADHA MORNING</a><br/>
-                    </div>
-                    <div>
-                        <a href="radha-night/pana.html">RADHA NIGHT</a><br/>
-                    </div>
+                    
                 </div>
                 
             </div>
@@ -28,11 +21,11 @@
                         Copyright &copy; 2022 <a href="index.html"><?= SITE_DOMAIN_NAME ?></a>. All Rights Reservederved
                     </div>
                     <div class="block border-top text-center content">
-                        <a href="http://www.dmca.com/Protection/Status.aspx?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
+                        <!-- <a href="http://www.dmca.com/Protection/Status.aspx?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
                            title="DMCA.com Protection Status" class="dmca-badge"> <img
                                 src="../images.dmca.com/Badges/dmca_protected_sml_120me2e8.png?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
                                 alt="DMCA.com Protection Status"/></a>
-                        <script src="../images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+                        <script src="../images.dmca.com/Badges/DMCABadgeHelper.min.js"></script> -->
                     </div>
                 </div>
             </div>
@@ -87,7 +80,7 @@
 </div>
 
 <!-- start of videoModal -->
-<div class="modal fade rounded" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div class="modal fade rounded" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body p-0 bg-transparent">
@@ -103,7 +96,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- end of videoModal -->
 
 <!-- strat scroll to top -->
@@ -115,18 +108,152 @@
 </a>
 <!-- end scroll to top -->
 
-<!-- Plugins Needed for the Project -->
-<script src="plugins/jQuery/jquery.min.js"></script>
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
-<script src="plugins/slick/slick.min.js"></script>
-<script src="plugins/shuffle/shuffle.min.js"></script>
-<script src="plugins/aos/aos.js"></script>
 
-<!-- Main Script -->
-<script src="js/s.js"></script>
+<!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"911d5a398ed9f41d","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"7ccc1ee03b524e1ebd1e72da1445bcd8","b":1}' crossorigin="anonymous"></script> -->
+<script>
+function GetAllMarketInfo()
+{
+    $.ajax({
+        url: 'https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results', 
+        type: 'GET',
+        dataType: 'json',
+        success: function(Response) {
+            // console.log(response);
+            var JodiChartName ="";
+            var PanaChartName = "";
+            var ChartScreenJodichart = "";
+            var ChartScreenPanachart = "";
+            var HomeGameResultList = "";
+            Response.forEach(Item => {
+                console.log("Item : ",Item);
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"911d5a398ed9f41d","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"7ccc1ee03b524e1ebd1e72da1445bcd8","b":1}' crossorigin="anonymous"></script>
+                JodiChartName += "<div>";
+                JodiChartName += "<a class='jodi-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
+                JodiChartName += "</div>";
+
+                PanaChartName += "<div>";
+                PanaChartName += "<a class='pana-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
+                PanaChartName += "</div>";
+
+                
+                ChartScreenJodichart += "<div class='col-xl-12 col-md-12'>";
+                ChartScreenJodichart += "<div class='card rounded shadow border-0 timetable'>";
+                ChartScreenJodichart +="<div class='card-body p-15' style='text-align: center'>";
+                ChartScreenJodichart +="<a class='chartScreen-jodi-chart-link' data-id='"+Item.id+"' >";
+                ChartScreenJodichart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
+                ChartScreenJodichart +="</a>";
+                ChartScreenJodichart +="</div>";
+                ChartScreenJodichart +="</div>";
+                ChartScreenJodichart +="</div>";
+
+                ChartScreenPanachart += "<div class='col-xl-12 col-md-12'>";
+                ChartScreenPanachart += "<div class='card rounded shadow border-0 timetable'>";
+                ChartScreenPanachart +="<div class='card-body p-15' style='text-align: center'>";
+                ChartScreenPanachart +="<a class='chartScreen-pana-chart-link' data-id='"+Item.id+"'>";
+                ChartScreenPanachart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
+                ChartScreenPanachart +="</a>";
+                ChartScreenPanachart +="</div>";
+                ChartScreenPanachart +="</div>";
+                ChartScreenPanachart +="</div>";
+
+
+                HomeGameResultList += "<div class='col-xl-4 col-md-6'>";
+                HomeGameResultList +=   "<div class='card rounded shadow border-0' style='margin-bottom: 6px'>";
+                HomeGameResultList +=    "<div class='card-body' style='padding: 15px 15px 6px 15px'>";
+                HomeGameResultList +=        "<div>";
+                HomeGameResultList +=            "<h3 class='font-weight-600 mb-10'>";
+                HomeGameResultList +=                "<span>Starline 06:30 PM</span>";
+                HomeGameResultList +=                "<span class='time' style='cursor: pointer;' data-toggle='modal' data-target='#timeModal' data-id='"+Item.id+"' data-name='"+Item.MarketName+"' data-closebidtime='"+Item.OpenTime+"' data-closebidresulttime='"+Item.CloseTime+"'>";
+                HomeGameResultList +=            "<img src='images/info.png' alt='Chart Information' height='14px' width='14px'>";
+                HomeGameResultList +=            "</span>";
+                HomeGameResultList +=            "</h3>";
+
+                HomeGameResultList +=            "<span class='h2 font-weight-bold d-inline-flex mb-30'>";
+                HomeGameResultList +=                "<h3 class='font-weight-bold'>669-1</h3>";
+                HomeGameResultList +=            "</span>";
+                HomeGameResultList +=            "<div style='display: inline;position: absolute;top: 15px; right: 15px;text-align: center'>";
+                HomeGameResultList +=                "<span style='font-size: 12px;' class='red'>Closed for Today</span><br/>";
+                HomeGameResultList +=               "<br/>";
+                HomeGameResultList +=            "</div>";
+                HomeGameResultList +=        "</div>";
+                HomeGameResultList +=       "<div style='text-align: center'>";
+                HomeGameResultList +=           "<a href='radha-morning/jodi.html'>";
+                HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-right:2px !important;' type='button'> Jodi Chart</button>";
+                HomeGameResultList +=           "</a>";
+                HomeGameResultList +=           "<a href='radha-morning/pana.html'>";
+                HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-left:2px !important;' type='button'>Pana Chart</button>";
+                HomeGameResultList +=           "</a>";
+                HomeGameResultList +=       "</div>";
+                HomeGameResultList +=    "</div>";
+                HomeGameResultList +=   "</div>";
+                HomeGameResultList += "</div>"; 
+
+            });
+
+            //setting footer header chart list seeting
+            var html1 = $('#footerJodiChartLink').html();
+            $('#navBarJodiChartLink').html(PanaChartName);
+            $('#chartScreenJodichart').html(ChartScreenJodichart);
+            $('#footerJodiChartLink').html(html1 + JodiChartName);
+           
+            var html2 = $('#footerPanaChartLink').html();
+            $('#navBarPanaChartLink').html(PanaChartName);
+            $('#chartScreenPanachart').html(ChartScreenPanachart);
+            $('#footerPanaChartLink').html(html2 + PanaChartName);
+
+
+        },
+        error: function(xhr, status, error) {
+            console.log('Error: ' + error);  // Callback function if request fails
+        }
+    });
+}
+
+function compareTimes(timeStr) {
+    // Step 1: Parse the time string (06:30 PM) to a Date object
+    const timeParts = timeStr.match(/(\d{1,2}):(\d{2})\s([APM]{2})/);
+    if (!timeParts) {
+        console.error('Invalid time format');
+        return;
+    }
+    
+    let hours = parseInt(timeParts[1]);
+    const minutes = parseInt(timeParts[2]);
+    const period = timeParts[3];
+
+    // Convert 12-hour format to 24-hour format
+    if (period === 'PM' && hours < 12) hours += 12;
+    if (period === 'AM' && hours === 12) hours = 0;
+
+    // Get the current time
+    const now = new Date();
+    const currentHours = now.getHours();
+    const currentMinutes = now.getMinutes();
+
+    // Step 2: Compare times
+    const timeInMinutes = hours * 60 + minutes;  // Convert target time to minutes
+    const currentTimeInMinutes = currentHours * 60 + currentMinutes;  // Convert current time to minutes
+
+    if (currentTimeInMinutes < timeInMinutes) {
+        console.log('Current time is earlier than the specified time');
+    } else if (currentTimeInMinutes > timeInMinutes) {
+        console.log('Current time is later than the specified time');
+    } else {
+        console.log('The current time is equal to the specified time');
+    }
+}
+
+$(document).ready(function(){
+    console.log("footer code running...");
+    GetAllMarketInfo();
+
+
+
+
+});
+
+</script>
+
 </body>
 
-<!-- Mirrored from www.sara777.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 13:20:12 GMT -->
 </html>

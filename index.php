@@ -257,12 +257,13 @@ include_once('themes/header.php');
                                         style="width: 120px;padding: 0px;margin-right:2px !important;" type="button">
                                     Jodi Chart
                                 </button>
-                            </a><a href="radha-morning/pana.html">
-                            <button class="btn btn-sm btn-outline-primary chart"
-                                    style="width: 120px;padding: 0px;margin-left:2px !important;" type="button">Pana
-                                Chart
-                            </button>
-                        </a>
+                            </a>
+                            <a href="radha-morning/pana.html">
+                                <button class="btn btn-sm btn-outline-primary chart"
+                                        style="width: 120px;padding: 0px;margin-left:2px !important;" type="button">Pana
+                                    Chart
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

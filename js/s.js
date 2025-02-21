@@ -1,6 +1,5 @@
 (function ($) {
     'use strict';
-
     // counterUp
     function counter() {
         var oTop;

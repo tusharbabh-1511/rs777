@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 
-<!-- Mirrored from www.sara777.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 13:19:53 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="utf-8">
     <title><?= SITE_DOMAIN_NAME ?> | Original & Official Website | <?= SITE_DOMAIN_NAME ?> </title>
@@ -38,6 +37,16 @@
             "logo": "<?= IMAGE_URL ?>logo.svg"
         }
     </script>
+    
+    <!-- Plugins Needed for the Project -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+    <script src="plugins/aos/aos.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/s.js"></script>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-spy" class="position-relative loaded">
@@ -65,25 +74,21 @@
             <div class="collapse navbar-collapse" id="navlinks">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="all-satta-matka-chart-sara777.html">Charts</a>
+                        <a class="nav-link" href="charts.php">Charts</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="jodiChartDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jodi Charts</a>
-                        <div class="dropdown-menu" aria-labelledby="jodiChartDropDown">
-                            <div>
-                                <a href="radha-morning/jodi.html">RADHA MORNING</a><br/>
-                            </div>
+                        <div class="dropdown-menu" aria-labelledby="jodiChartDropDown" id="navBarJodiChartLink">
+                            <!-- dynamically menu added here -->
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="panaChartDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pana Charts</a>
-                        <div class="dropdown-menu" aria-labelledby="panaChartDropDown">
-                            <div>
-                                <a href="radha-morning/pana.html">RADHA MORNING</a><br/>
-                            </div>
+                        <div class="dropdown-menu" aria-labelledby="panaChartDropDown" id="navBarPanaChartLink">
+                            <!-- dynamically menu added here -->
                         </div>
                     </li>
                 </ul>

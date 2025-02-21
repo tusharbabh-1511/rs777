@@ -8,8 +8,8 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 } else {
     $protocol = 'http';
 }
-
-define('SITE_URL', $protocol . "://" . $_SERVER['HTTP_HOST'] . "/RS777/");
+// $protocol = 'http';
+define('SITE_URL', $protocol . "://" . $_SERVER['HTTP_HOST'] . "/rs777/");
 define('IMAGE_URL',SITE_URL."images/");
 define('PLUGIN_URL',SITE_URL."plugins/");
 define('CSS_URL',SITE_URL."css/");
