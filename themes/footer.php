@@ -3,30 +3,26 @@
      style="background-image: url(images/brushes/footer.svg)">
     <div class="footer-bottom">
         <div class="container">
-            <div class="row chart-links">
-                <div class="col-6 col-sm-3" id="footerJodiChartLink">
-                    <h3>Jodi Charts</h3><br/>
-                    
-                    
-                </div>
-                <div class="col-6 col-sm-3" id="footerPanaChartLink">
-                    <h3>Pana Charts</h3><br/>
-                    
-                </div>
-                
+        <div class="row chart-links justify-content-center">
+            <div class="col-6 col-sm-3 text-center" id="footerJodiChartLink">
+                <h3>Jodi Charts</h3><br/>
             </div>
+            <div class="col-6 col-sm-3 text-center" id="footerPanaChartLink">
+                <h3>Pana Charts</h3><br/>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-12">
                     <div class="block border-top text-center content">
                         Copyright &copy; 2022 <a href="index.html"><?= SITE_DOMAIN_NAME ?></a>. All Rights Reservederved
                     </div>
-                    <div class="block border-top text-center content">
-                        <!-- <a href="http://www.dmca.com/Protection/Status.aspx?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
+                    <!-- <div class="block border-top text-center content">
+                        <a href="http://www.dmca.com/Protection/Status.aspx?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
                            title="DMCA.com Protection Status" class="dmca-badge"> <img
                                 src="../images.dmca.com/Badges/dmca_protected_sml_120me2e8.png?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
                                 alt="DMCA.com Protection Status"/></a>
-                        <script src="../images.dmca.com/Badges/DMCABadgeHelper.min.js"></script> -->
-                    </div>
+                        <script src="../images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -196,7 +192,7 @@ function GetAllMarketInfo()
 
             //setting footer header chart list seeting
             var html1 = $('#footerJodiChartLink').html();
-            $('#navBarJodiChartLink').html(PanaChartName);
+            $('#navBarJodiChartLink').html(JodiChartName);
             $('#chartScreenJodichart').html(ChartScreenJodichart);
             $('#footerJodiChartLink').html(html1 + JodiChartName);
            
