@@ -29,7 +29,17 @@ include_once('themes/header.php');
                 </tr>
             </thead>
             <tbody>
-                <tr><td colspan="8">No Data Found !</td></tr>
+                <tr>
+                    <td colspan="8"> 
+                        <div class="loader row justify-content-center">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
