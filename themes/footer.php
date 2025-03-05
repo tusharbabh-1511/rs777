@@ -3,15 +3,31 @@
      style="background-image: url(images/brushes/footer.svg)">
     <div class="footer-bottom">
         <div class="container">
-        <div class="row chart-links justify-content-center">
-            <div class="col-6 col-sm-3 text-center" id="footerJodiChartLink">
-                <h3>Jodi Charts</h3><br/>
+            <div class="row chart-links justify-content-center">
+                <div class="col-6 col-sm-3 text-center" id="footerJodiChartLink">
+                    <h3>Jodi Charts</h3><br/>
+                </div>
+                <div class="col-6 col-sm-3 text-center" id="footerPanaChartLink">
+                    <h3>Pana Charts</h3><br/>
+                </div>
             </div>
-            <div class="col-6 col-sm-3 text-center" id="footerPanaChartLink">
-                <h3>Pana Charts</h3><br/>
+            <!-- start -->
+            <div class="container mt-3">
+                <div class="row justify-content-center">
+                        <a href="#" class="btn btn-store mx-3">
+                            <span class="fa fa-android fa-3x pull-left"></span> 
+                            <span class="btn-label">Download on the</span>
+                            <span class="btn-caption">Google Play</span>
+                        </a>
+                        <a href="#" class="btn btn-store mx-3">
+                            <span class="fa fa-apple fa-3x pull-left"></span> 
+                            <span class="btn-label">Download on the</span>
+                            <span class="btn-caption">App Store</span>
+                        </a>
+                </div>
             </div>
-        </div>
-            <div class="row">
+            <!-- end -->
+            <div class="row mt-3">
                 <div class="col-12">
                     <div class="block border-top text-center content">
                         Copyright &copy; 2022 <a href="index.html"><?= SITE_DOMAIN_NAME ?></a>. All Rights Reservederved
@@ -110,6 +126,21 @@
 let currentPage = window.location.pathname.split("/").pop();
 console.log(currentPage);
 let APIURL = "https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results";
+const GameRates = [
+    { GameName: "Single Digit", Rate: 9.5 },
+    { GameName: "Jodi Digit", Rate: 95.0 },
+    { GameName: "Single Pana", Rate: 150.0 },
+    { GameName: "Double Pana", Rate: 300.0 },
+    { GameName: "Triple Pana", Rate: 900.0 },
+    { GameName: "Half Sangam", Rate: 1000.0 },
+    { GameName: "Full Sangam", Rate: 10000.0 },
+    { GameName: "Jodi Family", Rate: 95.0 },
+    { GameName: "Pana Family", Rate: 140.0 },
+    { GameName: "Cycle Pana", Rate: 140.0 },
+    { GameName: "SP Motor", Rate: 140.0 },
+    { GameName: "DP Motor", Rate: 280.0 }
+];
+
 function GetAllMarketInfo()
 {
     $.ajax({
@@ -364,8 +395,6 @@ function groupByWeek(data) {
     return weeks;
 }
 
-
-
 function generateTable(weeks) {
     let tbody = $("#chartTable tbody");
     tbody.empty();
@@ -407,15 +436,39 @@ function generateTable(weeks) {
     });
 }
 
-
 function highlight(value,jodi) {
     let highlightValues = ["00", "05", "11", "16", "22", "27", "33", "38", "44", "49", "50", "55", "61", "66", "72", "77", "83", "88", "94", "99"];
 
     return highlightValues.includes(jodi) ? `<span class='highlight'>${value}</span>` : value;
 }
 
+function generateGameRateDiv()
+{
+    let GameRateHtml = "";
+    GameRates.forEach(function( Item ,Index ){
+        GameRateHtml += `<div class="col-xl-4 col-md-6">
+                            <div class="card rounded shadow border-0">
+                                <div class="card-body p-15" style="text-align: center">
+                                    <div style="border-left: 4px solid #fab028">
+                                        <h3 class="font-weight-600">${Item.GameName}</h3><span
+                                            class="h4 d-inline-flex"><h4>1 RS KA ${Item.Rate} Rs</h4></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+    });
+
+    $('#gameRateDiv').html(GameRateHtml);
+}
 $(document).ready(function(){
     console.log("footer code running...");
+
+    if(currentPage == '<?= indexPage ?>' || currentPage == '')
+    {
+        generateGameRateDiv();
+        
+    }
+
     GetAllMarketInfo();
 
     $(document).on("click",".ShowModal",function(){
@@ -427,6 +480,7 @@ $(document).ready(function(){
         $('#timeCloseResult').text($(this).attr('data-closetime'));
         $('#timeProviderName').text($(this).attr('data-market-name'));
     });
+
 });
 
 </script>

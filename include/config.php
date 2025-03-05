@@ -17,6 +17,11 @@ define('JS_URL',SITE_URL."js/");
 define('SITE_DOMAIN_NAME',"Rs777");
 define('SITE_DIAPLAY_NAME',"Rs 777");
 
+
+define('JodiChartPage','jodiChart.php');
+define('panaChartPage','panaChart.php');
+define('chartPage','charts.php');
+define('indexPage','index.php');
 // Set time zone based on user preference
 $user_time_zone = 'Asia/Kolkata'; // Example from a database or form input
 date_default_timezone_set($user_time_zone);

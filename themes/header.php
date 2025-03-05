@@ -23,9 +23,10 @@
     <link href="<?= CSS_URL ?>st.css" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="<?= IMAGE_URL ?>favicon.png" type="image">
-    <link rel="icon" href="<?= IMAGE_URL ?>favicon.png" type="image/x-icon">
-    <link rel="canonical" href="index.html">
+    <link rel="shortcut icon" href="<?= IMAGE_URL ?>favicon.jpeg" type="image">
+    <link rel="icon" href="<?= IMAGE_URL ?>favicon.jpeg" type="image/x-icon">
+    <link rel="canonical" href="index.php">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script type="application/ld+json">
         {
@@ -34,7 +35,7 @@
             "name": "<?php echo SITE_DOMAIN_NAME; ?>",
             "alternateName": "<?= SITE_DIAPLAY_NAME ?>",
             "url": "<?= SITE_URL ?>",
-            "logo": "<?= IMAGE_URL ?>logo.svg"
+            "logo": "<?= IMAGE_URL ?>logo.jpeg"
         }
     </script>
     
@@ -136,6 +137,52 @@
             transform: translate(-120px, 0);
         }
         }
+        .carousel-inner img {
+            width: 100%; /* Ensures images take full width */
+            height: 500px; /* Default height for desktop */
+            object-fit: cover; /* Prevents distortion, crops the image to fit */
+            filter: brightness(60%); 
+        }
+
+        /* Tablet View */
+        @media (max-width: 768px) {
+            .carousel-inner img {
+                height: 350px; /* Adjust height for tablets */
+            }
+        }
+
+        /* Mobile View */
+        @media (max-width: 480px) {
+            .carousel-inner img {
+                height: 250px; /* Adjust height for mobile */
+            }
+        }
+
+        .btn-store {
+        color: #fab028;
+        min-width: 254px;
+        padding: 12px 20px !important;
+        border:solid 1px #fab028 !important;
+        margin-top: 10px;
+        }
+
+        .btn-store:focus, 
+        .btn-store:hover {
+        color: #ffffff !important;
+        background-color: #fab028 ;
+        border-color: #fab028 !important;
+        }
+
+        .btn-store .btn-label, 
+        .btn-store .btn-caption {
+        display: block;
+        text-align: left;
+        line-height: 1;
+        }
+
+        .btn-store .btn-caption {
+        font-size: 24px;
+        }
 
     </style>
 
@@ -146,7 +193,7 @@
 <header class="header-nav position-relative bg-light-gray">
     <div class="container">
         <nav class="navbar navbar-expand-xl navbar-light px-0">
-            <a class="navbar-brand p-0" href="index.php"><img class="img-fluid" src="<?= IMAGE_URL ?>logo.svg" alt="<?php SITE_DOMAIN_NAME ?>"></a>
+            <a class="navbar-brand p-0" href="index.php"><img class="img-fluid" src="<?= IMAGE_URL ?>logo.jpeg" width="120" alt="<?php SITE_DOMAIN_NAME ?>"></a>
             <!-- logo -->
 
             <button class="navbar-toggler bg-white rounded-0 p-0" type="button" data-toggle="collapse"

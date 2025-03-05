@@ -7,7 +7,7 @@ include_once('themes/header.php');
         class="banner position-relative bg-cover-bottom has-shapes bg-light-gray has-bg-brash bg-brash-bottom position-relative"
         style="background-image: url(images/brushes/banner.svg)" data-aos="fade-in" data-aos-delay="150">
     <div class="container h-100">
-        <div class="d-block d-lg-flex no-gutters align-items-center h-100">
+        <!-- <div class="d-block d-lg-flex no-gutters align-items-center h-100">
             <div class="col-12 col-xl-8 col-lg-8 order-lg-1">
                 <div class="banner-image has-shapes mb-4 mb-md-5 mb-lg-0">
                     <img class="img-fluid" src="images/screenshots/banner-shot.png" alt="<?= SITE_DOMAIN_NAME ?> banner image">
@@ -20,12 +20,67 @@ include_once('themes/header.php');
             <div class="col-xl-5 col-lg-6 order-lg-0" style="text-align:center">
                 <h1><?= SITE_DOMAIN_NAME ?> | <?= SITE_DIAPLAY_NAME ?> | Rs Ji</h1>
             </div>
+        </div> -->
+
+        <!-- start carousel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="<?= IMAGE_URL ?>slider/FirstSlide.jpeg" alt="First slide">
+                    <div class="carousel-caption ">
+                        <h5 class="text-white">RS Games 777</h5>
+                        <p>Your trusted platform for real-time Satta Matka Charts.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="<?= IMAGE_URL ?>slider/SecondSlide.jpeg" alt="Second slide">
+                    <div class="carousel-caption ">
+                        <h5 class="text-white">RS Games 777</h5>
+                        <p>At RS Games 777, we provide a smooth and reliable platform for Satta Matka enthusiasts.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="<?= IMAGE_URL ?>slider/ThirdSlide.jpeg" alt="Third slide">
+                    <div class="carousel-caption ">
+                        <h5 class="text-white" >RS Games 777</h5>
+                        <p>At Rs 777, we focus on providing a smooth experience for users.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- end carousel -->
+    </div>
+
+    <div class="container mt-3">
+        <div class="row justify-content-around">
+                <a href="#" class="btn btn-store">
+                    <span class="fa fa-android fa-3x pull-left"></span> 
+                    <span class="btn-label">Download on the</span>
+                    <span class="btn-caption">Google Play</span>
+                </a>
+                <a href="#" class="btn btn-store">
+                    <span class="fa fa-apple fa-3x pull-left"></span> 
+                    <span class="btn-label">Download on the</span>
+                    <span class="btn-caption">App Store</span>
+                </a>
         </div>
     </div>
 
-    
-
-    <div class="container" style="border: red solid 2px;text-align: center;margin-top: 64px">
+    <div class="container" style="border: red solid 2px;text-align: center;margin-top: 30px">
         <span style="font-size: 20px;color: red">
         New Registration On <?= SITE_DOMAIN_NAME ?> Application Is Temporarily Closed. Be Aware Of Fake Apps in The Name Of <?= SITE_DOMAIN_NAME ?>. We Are Not Responsible For Scam And Fraud Done By Fake Applications. Jan hit Mein Jaari.
         </span>
@@ -46,97 +101,7 @@ include_once('themes/header.php');
          style="background-image: url(images/brushes/section-top.svg), url(images/brushes/section-bottom.svg);">
     <div class="container">
         <h2 class="h2 mb-20"><strong>Game Rates</strong></h2>
-        <div class="row" data-aos="fade-up">
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Single Digit</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 9.5 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Jodi Digits</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 95 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Red Brackets</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 95 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Single Pana</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 150 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Double Pana</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 300 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Triple Pana</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 900 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Half Sangam A</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 1000 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Half Sangam B</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 1000 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card rounded shadow border-0">
-                    <div class="card-body p-15" style="text-align: center">
-                        <div style="border-left: 4px solid #fab028">
-                            <h3 class="font-weight-600">Full Sangam</h3><span
-                                class="h4 d-inline-flex"><h4>1 RS KA 10000 Rs</h4></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row" data-aos="fade-up" id="gameRateDiv">
         </div>
 
     </div>
