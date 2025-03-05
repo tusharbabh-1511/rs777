@@ -165,59 +165,64 @@ function GetAllMarketInfo()
                 PanaChartName += "<a href='panaChart.php?Id="+Item.id+"' class='pana-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
                 PanaChartName += "</div>";
 
+                if(currentPage == '<?= chartPage ?>')
+                {
+                    ChartScreenJodichart += "<div class='col-xl-12 col-md-12'>";
+                    ChartScreenJodichart += "<div class='card rounded shadow border-0 timetable'>";
+                    ChartScreenJodichart +="<div class='card-body p-15' style='text-align: center'>";
+                    ChartScreenJodichart +="<a href='jodiChart.php?Id="+Item.id+"' class='chartScreen-jodi-chart-link' data-id='"+Item.id+"' >";
+                    ChartScreenJodichart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
+                    ChartScreenJodichart +="</a>";
+                    ChartScreenJodichart +="</div>";
+                    ChartScreenJodichart +="</div>";
+                    ChartScreenJodichart +="</div>";
+
+                    ChartScreenPanachart += "<div class='col-xl-12 col-md-12'>";
+                    ChartScreenPanachart += "<div class='card rounded shadow border-0 timetable'>";
+                    ChartScreenPanachart +="<div class='card-body p-15' style='text-align: center'>";
+                    ChartScreenPanachart +="<a href='panaChart.php?Id="+Item.id+"' class='chartScreen-pana-chart-link' data-id='"+Item.id+"'>";
+                    ChartScreenPanachart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
+                    ChartScreenPanachart +="</a>";
+                    ChartScreenPanachart +="</div>";
+                    ChartScreenPanachart +="</div>";
+                    ChartScreenPanachart +="</div>";
+                }
                 
-                ChartScreenJodichart += "<div class='col-xl-12 col-md-12'>";
-                ChartScreenJodichart += "<div class='card rounded shadow border-0 timetable'>";
-                ChartScreenJodichart +="<div class='card-body p-15' style='text-align: center'>";
-                ChartScreenJodichart +="<a href='jodiChart.php?Id="+Item.id+"' class='chartScreen-jodi-chart-link' data-id='"+Item.id+"' >";
-                ChartScreenJodichart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
-                ChartScreenJodichart +="</a>";
-                ChartScreenJodichart +="</div>";
-                ChartScreenJodichart +="</div>";
-                ChartScreenJodichart +="</div>";
+                if(currentPage == '<?= indexPage ?>' || currentPage == '')
+                {
+                    var ShowGameStatusObj = checkTimeStatus(Item.OpenTime,Item.CloseTime);
 
-                ChartScreenPanachart += "<div class='col-xl-12 col-md-12'>";
-                ChartScreenPanachart += "<div class='card rounded shadow border-0 timetable'>";
-                ChartScreenPanachart +="<div class='card-body p-15' style='text-align: center'>";
-                ChartScreenPanachart +="<a href='panaChart.php?Id="+Item.id+"' class='chartScreen-pana-chart-link' data-id='"+Item.id+"'>";
-                ChartScreenPanachart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
-                ChartScreenPanachart +="</a>";
-                ChartScreenPanachart +="</div>";
-                ChartScreenPanachart +="</div>";
-                ChartScreenPanachart +="</div>";
+                    HomeGameResultList += "<div class='col-xl-4 col-md-6'>";
+                    HomeGameResultList +=   "<div class='card rounded shadow border-0' style='margin-bottom: 6px'>";
+                    HomeGameResultList +=    "<div class='card-body' style='padding: 15px 15px 6px 15px'>";
+                    HomeGameResultList +=        "<div>";
+                    HomeGameResultList +=            "<h3 class='font-weight-600 mb-10'>";
+                    HomeGameResultList +=                "<span>"+Item.MarketName+" </span>";
+                    HomeGameResultList +=                "<span class='time ShowModal' style='cursor: pointer;' data-toggle='modal' data-target='#timeModal' data-id='"+Item.id+"' data-market-name='"+Item.MarketName+"' data-opentime='"+Item.OpenTime+"' data-closetime='"+Item.CloseTime+"'>";
+                    HomeGameResultList +=            "<img src='images/info.png' alt='Chart Information' height='14px' width='14px'>";
+                    HomeGameResultList +=            "</span>";
+                    HomeGameResultList +=            "</h3>";
 
-                var ShowGameStatusObj = checkTimeStatus(Item.OpenTime,Item.CloseTime);
-
-                HomeGameResultList += "<div class='col-xl-4 col-md-6'>";
-                HomeGameResultList +=   "<div class='card rounded shadow border-0' style='margin-bottom: 6px'>";
-                HomeGameResultList +=    "<div class='card-body' style='padding: 15px 15px 6px 15px'>";
-                HomeGameResultList +=        "<div>";
-                HomeGameResultList +=            "<h3 class='font-weight-600 mb-10'>";
-                HomeGameResultList +=                "<span>"+Item.MarketName+" </span>";
-                HomeGameResultList +=                "<span class='time ShowModal' style='cursor: pointer;' data-toggle='modal' data-target='#timeModal' data-id='"+Item.id+"' data-market-name='"+Item.MarketName+"' data-opentime='"+Item.OpenTime+"' data-closetime='"+Item.CloseTime+"'>";
-                HomeGameResultList +=            "<img src='images/info.png' alt='Chart Information' height='14px' width='14px'>";
-                HomeGameResultList +=            "</span>";
-                HomeGameResultList +=            "</h3>";
-
-                HomeGameResultList +=            "<span class='h2 font-weight-bold d-inline-flex mb-30'>";
-                HomeGameResultList +=                "<h3 class='font-weight-bold'>"+showResultDigit(Item.OpenDigit,Item.JodiDigit,Item.CloseDigit)+"</h3>";
-                HomeGameResultList +=            "</span>";
-                HomeGameResultList +=            "<div style='display: inline;position: absolute;top: 15px; right: 15px;text-align: center'>";
-                HomeGameResultList +=                "<span style='font-size: 12px;' class='"+ShowGameStatusObj.ClassName+"'>"+ShowGameStatusObj.DisplayString+"</span><br/>";
-                HomeGameResultList +=               "<br/>";
-                HomeGameResultList +=            "</div>";
-                HomeGameResultList +=        "</div>";
-                HomeGameResultList +=       "<div style='text-align: center'>";
-                HomeGameResultList +=           "<a href='jodiChart.php?Id="+Item.id+"'>";
-                HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-right:2px !important;' type='button'> Jodi Chart</button>";
-                HomeGameResultList +=           "</a>";
-                HomeGameResultList +=           "<a href='panaChart.php?Id="+Item.id+"' >";
-                HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-left:2px !important;' type='button'>Pana Chart</button>";
-                HomeGameResultList +=           "</a>";
-                HomeGameResultList +=       "</div>";
-                HomeGameResultList +=    "</div>";
-                HomeGameResultList +=   "</div>";
-                HomeGameResultList += "</div>"; 
+                    HomeGameResultList +=            "<span class='h2 font-weight-bold d-inline-flex mb-30'>";
+                    HomeGameResultList +=                "<h3 class='font-weight-bold'>"+showResultDigit(Item.OpenDigit,Item.JodiDigit,Item.CloseDigit)+"</h3>";
+                    HomeGameResultList +=            "</span>";
+                    HomeGameResultList +=            "<div style='display: inline;position: absolute;top: 15px; right: 15px;text-align: center'>";
+                    HomeGameResultList +=                "<span style='font-size: 12px;' class='"+ShowGameStatusObj.ClassName+"'>"+ShowGameStatusObj.DisplayString+"</span><br/>";
+                    HomeGameResultList +=               "<br/>";
+                    HomeGameResultList +=            "</div>";
+                    HomeGameResultList +=        "</div>";
+                    HomeGameResultList +=       "<div style='text-align: center'>";
+                    HomeGameResultList +=           "<a href='jodiChart.php?Id="+Item.id+"'>";
+                    HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-right:2px !important;' type='button'> Jodi Chart</button>";
+                    HomeGameResultList +=           "</a>";
+                    HomeGameResultList +=           "<a href='panaChart.php?Id="+Item.id+"' >";
+                    HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-left:2px !important;' type='button'>Pana Chart</button>";
+                    HomeGameResultList +=           "</a>";
+                    HomeGameResultList +=       "</div>";
+                    HomeGameResultList +=    "</div>";
+                    HomeGameResultList +=   "</div>";
+                    HomeGameResultList += "</div>"; 
+                }
 
             });
 
@@ -466,20 +471,21 @@ $(document).ready(function(){
     if(currentPage == '<?= indexPage ?>' || currentPage == '')
     {
         generateGameRateDiv();
-        
+
+        $(document).on("click",".ShowModal",function(){
+            // console.log("modalopen");
+            $('#timeOpenResult').text("");
+            $('#timeCloseResult').text("");
+            $('#timeProviderName').text("");
+            $('#timeOpenResult').text($(this).attr('data-opentime'));
+            $('#timeCloseResult').text($(this).attr('data-closetime'));
+            $('#timeProviderName').text($(this).attr('data-market-name'));
+        });
     }
 
     GetAllMarketInfo();
 
-    $(document).on("click",".ShowModal",function(){
-        // console.log("modalopen");
-        $('#timeOpenResult').text("");
-        $('#timeCloseResult').text("");
-        $('#timeProviderName').text("");
-        $('#timeOpenResult').text($(this).attr('data-opentime'));
-        $('#timeCloseResult').text($(this).attr('data-closetime'));
-        $('#timeProviderName').text($(this).attr('data-market-name'));
-    });
+    
 
 });
 

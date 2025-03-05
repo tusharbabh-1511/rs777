@@ -5,7 +5,13 @@
     <div class="container" style="padding:40px 0px !important;">
         <h2 class="h2 mb-20" style="text-align: center"><strong>Jodi Chart</strong></h2>
         <div class="row" id="chartScreenJodichart">
-            
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </div>
 </section>
@@ -17,7 +23,13 @@
     <div class="container" style="padding:40px 0px !important;">
         <h2 class="h2 mb-20" style="text-align: center"><strong>Pana Chart</strong></h2>
         <div class="row" id="chartScreenPanachart">
-            
+            <div class="loader ">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </div>
 </section>

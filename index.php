@@ -119,8 +119,7 @@ include_once('themes/header.php');
          style="background-image: url(images/brushes/section-top.svg), url(images/brushes/section-bottom.svg);">
     <div class="container">
         <h2 class="h2 mb-20"><strong>Games</strong></h2>
-        <div class="row" data-aos="fade-up" id="homeGamesList">
-            
+        <div class="row" data-aos="fade-up" id="homeGamesList">            
         </div>
     </div>
 
