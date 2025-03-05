@@ -111,10 +111,13 @@
 
 <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"911d5a398ed9f41d","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"7ccc1ee03b524e1ebd1e72da1445bcd8","b":1}' crossorigin="anonymous"></script> -->
 <script>
+let currentPage = window.location.pathname.split("/").pop();
+console.log(currentPage);
+let APIURL = "https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results";
 function GetAllMarketInfo()
 {
     $.ajax({
-        url: 'https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results', 
+        url: APIURL, 
         type: 'GET',
         dataType: 'json',
         success: function(Response) {
@@ -125,21 +128,21 @@ function GetAllMarketInfo()
             var ChartScreenPanachart = "";
             var HomeGameResultList = "";
             Response.forEach(Item => {
-                console.log("Item : ",Item);
+                // console.log("Item : ",Item);
 
                 JodiChartName += "<div>";
-                JodiChartName += "<a class='jodi-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
+                JodiChartName += "<a href='jodiChart.php?Id="+Item.id+"' class='jodi-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
                 JodiChartName += "</div>";
 
                 PanaChartName += "<div>";
-                PanaChartName += "<a class='pana-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
+                PanaChartName += "<a href='panaChart.php?Id="+Item.id+"' class='pana-chart-link' data-id='"+Item.id+"' >"+Item.MarketName+"</a><br/>";
                 PanaChartName += "</div>";
 
                 
                 ChartScreenJodichart += "<div class='col-xl-12 col-md-12'>";
                 ChartScreenJodichart += "<div class='card rounded shadow border-0 timetable'>";
                 ChartScreenJodichart +="<div class='card-body p-15' style='text-align: center'>";
-                ChartScreenJodichart +="<a class='chartScreen-jodi-chart-link' data-id='"+Item.id+"' >";
+                ChartScreenJodichart +="<a href='jodiChart.php?Id="+Item.id+"' class='chartScreen-jodi-chart-link' data-id='"+Item.id+"' >";
                 ChartScreenJodichart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
                 ChartScreenJodichart +="</a>";
                 ChartScreenJodichart +="</div>";
@@ -149,38 +152,39 @@ function GetAllMarketInfo()
                 ChartScreenPanachart += "<div class='col-xl-12 col-md-12'>";
                 ChartScreenPanachart += "<div class='card rounded shadow border-0 timetable'>";
                 ChartScreenPanachart +="<div class='card-body p-15' style='text-align: center'>";
-                ChartScreenPanachart +="<a class='chartScreen-pana-chart-link' data-id='"+Item.id+"'>";
+                ChartScreenPanachart +="<a href='panaChart.php?Id="+Item.id+"' class='chartScreen-pana-chart-link' data-id='"+Item.id+"'>";
                 ChartScreenPanachart +="<h3 class='font-weight-600'>"+Item.MarketName+"</h3>";
                 ChartScreenPanachart +="</a>";
                 ChartScreenPanachart +="</div>";
                 ChartScreenPanachart +="</div>";
                 ChartScreenPanachart +="</div>";
 
+                var ShowGameStatusObj = checkTimeStatus(Item.OpenTime,Item.CloseTime);
 
                 HomeGameResultList += "<div class='col-xl-4 col-md-6'>";
                 HomeGameResultList +=   "<div class='card rounded shadow border-0' style='margin-bottom: 6px'>";
                 HomeGameResultList +=    "<div class='card-body' style='padding: 15px 15px 6px 15px'>";
                 HomeGameResultList +=        "<div>";
                 HomeGameResultList +=            "<h3 class='font-weight-600 mb-10'>";
-                HomeGameResultList +=                "<span>Starline 06:30 PM</span>";
-                HomeGameResultList +=                "<span class='time' style='cursor: pointer;' data-toggle='modal' data-target='#timeModal' data-id='"+Item.id+"' data-name='"+Item.MarketName+"' data-closebidtime='"+Item.OpenTime+"' data-closebidresulttime='"+Item.CloseTime+"'>";
+                HomeGameResultList +=                "<span>"+Item.MarketName+" </span>";
+                HomeGameResultList +=                "<span class='time ShowModal' style='cursor: pointer;' data-toggle='modal' data-target='#timeModal' data-id='"+Item.id+"' data-market-name='"+Item.MarketName+"' data-opentime='"+Item.OpenTime+"' data-closetime='"+Item.CloseTime+"'>";
                 HomeGameResultList +=            "<img src='images/info.png' alt='Chart Information' height='14px' width='14px'>";
                 HomeGameResultList +=            "</span>";
                 HomeGameResultList +=            "</h3>";
 
                 HomeGameResultList +=            "<span class='h2 font-weight-bold d-inline-flex mb-30'>";
-                HomeGameResultList +=                "<h3 class='font-weight-bold'>669-1</h3>";
+                HomeGameResultList +=                "<h3 class='font-weight-bold'>"+showResultDigit(Item.OpenDigit,Item.JodiDigit,Item.CloseDigit)+"</h3>";
                 HomeGameResultList +=            "</span>";
                 HomeGameResultList +=            "<div style='display: inline;position: absolute;top: 15px; right: 15px;text-align: center'>";
-                HomeGameResultList +=                "<span style='font-size: 12px;' class='red'>Closed for Today</span><br/>";
+                HomeGameResultList +=                "<span style='font-size: 12px;' class='"+ShowGameStatusObj.ClassName+"'>"+ShowGameStatusObj.DisplayString+"</span><br/>";
                 HomeGameResultList +=               "<br/>";
                 HomeGameResultList +=            "</div>";
                 HomeGameResultList +=        "</div>";
                 HomeGameResultList +=       "<div style='text-align: center'>";
-                HomeGameResultList +=           "<a href='radha-morning/jodi.html'>";
+                HomeGameResultList +=           "<a href='jodiChart.php?Id="+Item.id+"'>";
                 HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-right:2px !important;' type='button'> Jodi Chart</button>";
                 HomeGameResultList +=           "</a>";
-                HomeGameResultList +=           "<a href='radha-morning/pana.html'>";
+                HomeGameResultList +=           "<a href='panaChart.php?Id="+Item.id+"' >";
                 HomeGameResultList +=               "<button class='btn btn-sm btn-outline-primary chart' style='width: 120px;padding: 0px;margin-left:2px !important;' type='button'>Pana Chart</button>";
                 HomeGameResultList +=           "</a>";
                 HomeGameResultList +=       "</div>";
@@ -201,12 +205,76 @@ function GetAllMarketInfo()
             $('#chartScreenPanachart').html(ChartScreenPanachart);
             $('#footerPanaChartLink').html(html2 + PanaChartName);
 
+            $("#homeGamesList").html(HomeGameResultList);
+
 
         },
         error: function(xhr, status, error) {
             console.log('Error: ' + error);  // Callback function if request fails
         }
     });
+}
+
+function getSpecificMarketinfo(Id,chart)
+{
+    $.ajax({
+        type: "GET",
+        url: APIURL+"/"+Id,
+        dataType : "json",
+        success: function(data) {
+            let FirstData = data[0];
+            
+            if(currentPage == 'panaChart.php')
+            {
+                $('#ChartHeading').text(`${FirstData.MarketName} Pana Chart | ${FirstData.MarketName} Panel Chart`);
+                $('#ChartSubHeading').text(`${FirstData.MarketName} Panel Chart Satta Matka Record Old History Historical Data Bracket Results Chart Online Live Book Digits Numbers`);
+            }
+            else if(currentPage == 'jodiChart.php')
+            {
+                $('#ChartHeading').text(`${FirstData.MarketName} Jodi Chart`);
+                $('#ChartSubHeading').text(`${FirstData.MarketName} Jodi Chart Satta Matka Record Old History Historical Data Bracket Results Chart Online Live Book Digits Numbers`);
+            }
+            let groupedData = groupByWeek(data);
+            generateTable(groupedData,chart);
+        },
+        error : function (xhr, status, error)
+        {
+
+        }
+    });
+}
+
+function showResultDigit(OpenDigit,JodiDigit,CloseDigit)
+{
+    if(OpenDigit == null && JodiDigit == null && CloseDigit == null)
+    {
+        return "***-**-***";
+    }
+    else
+    {
+        var Str = "";
+        if(OpenDigit != null && OpenDigit != "")
+        {
+            Str = OpenDigit;
+        }
+        if(JodiDigit != null && JodiDigit != "")
+        {
+            Str += (JodiDigit.trim().length > 1 ) ?  "-"+JodiDigit : "-"+JodiDigit+"*" ;
+        }
+        else
+        {
+            Str += "-**";
+        }
+        if(CloseDigit != null && CloseDigit != "")
+        {
+            Str += "-"+CloseDigit;
+        }
+        else
+        {
+            Str += "-***";
+        }
+        return Str;
+    }
 }
 
 function parseTime(timeStr) {
@@ -239,17 +307,29 @@ function checkTimeStatus(startTime, endTime) {
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
+    function createReturnObj(ReturnStr,ClassName)
+    {
+        return {ClassName : ClassName ,DisplayString : ReturnStr};
+    }
+
     // Step 3: Compare current time with start and end times
     if (start < end) {
         // The time range is within a single day (e.g., "03:25 PM" to "05:25 PM")
         if (currentMinutes >= start && currentMinutes <= end) {
-            console.log('Current time is between the two times.');
+            // console.log('Current time is between the two times.');
+            return createReturnObj("Running For Close","yellow");
         } else if (currentMinutes < start) {
-            console.log('Current time is before the start time.');
+            // console.log('Current time is before the start time.');
+            // return "Running For Now";
+            return createReturnObj("Running For Now","green");
         } else {
-            console.log('Current time is after the end time.');
+            // console.log('Current time is after the end time.');
+            // return "Closed for Today";
+            return createReturnObj("Closed for Today","red");
         }
     } else {
+        console.warn("SOmething went wrong in time matching :");
+        return;
         // The time range spans midnight (e.g., "10:00 PM" to "02:00 AM")
         if (currentMinutes >= start || currentMinutes <= end) {
             console.log('Current time is between the two times.');
@@ -261,16 +341,96 @@ function checkTimeStatus(startTime, endTime) {
     }
 }
 
-// Example usage:
-// checkTimeStatus("03:25 PM", "05:25 PM");
+function groupByWeek(data) {
+    let weeks = {};
+    data.forEach(item => {
+        let date = new Date(item.CreatedOn);
+        let day = date.getDay(); // Get day of the week (0 = Sun, 1 = Mon, ..., 6 = Sat)
+
+        // Ensure week starts from Monday
+        let weekStart = new Date(date);
+        weekStart.setDate(date.getDate() - (day === 0 ? 6 : day - 1)); // Adjust to Monday
+
+        let weekKey = weekStart.toISOString().split('T')[0]; // Format YYYY-MM-DD
+        if (!weeks[weekKey]) {
+            weeks[weekKey] = { "weekStart": weekStart, "data": {} };
+        }
+
+        // Fix day index mapping to ensure Monday is first and Sunday is last
+        let dayIndex = (day + 6) % 7; // Corrects shifting issue
+
+        weeks[weekKey]["data"][dayIndex] = {
+            open: item.OpenDigit,
+            jodi: item.JodiDigit,
+            close: item.CloseDigit
+        };
+    });
+    return weeks;
+}
+
+
+
+function generateTable(weeks) {
+    let tbody = $("#chartTable tbody");
+    tbody.empty();
+
+    Object.keys(weeks).forEach(weekStart => {
+        let row = "<tr>";
+        row += `<td class="cc"><span class="cp">${weekStart}</span>
+                    <span class="cp">To</span>
+                    <span class="cp">${new Date(new Date(weekStart).getTime() + 6 * 86400000).toISOString().split('T')[0]}</span></td>`;
+
+        for (let i = 0; i < 7; i++) { // Loop from Monday (0) to Sunday (6)
+            if (weeks[weekStart]["data"][i]) {
+                let { open, jodi, close } = weeks[weekStart]["data"][i];
+                if(chart === 'PANACHART')
+                {
+                    row += `<td class="cc"><span class="cp">${highlight(open,jodi)}</span>
+                            <span>${highlight(jodi,jodi)}</span>
+                            <span class="cp">${highlight(close,jodi)}</span></td>`;
+                }
+                else if(chart === 'JODICHART')
+                {
+                    row +=`<td class="cc">${highlight(jodi,jodi)}</td>`;
+                }
+                
+            } else {
+                
+                if(chart === 'PANACHART')
+                {
+                    row += "<td class='cc'><span class='cp'>***</span><span>**</span><span class='cp'>***</span> </td>"; // Empty cell
+                }
+                else if(chart === 'JODICHART')
+                {
+                    row += `<td class="cc highlight">**</td>`;
+                }
+            }
+        }
+        row += "</tr>";
+        tbody.append(row);
+    });
+}
+
+
+function highlight(value,jodi) {
+    let highlightValues = ["00", "05", "11", "16", "22", "27", "33", "38", "44", "49", "50", "55", "61", "66", "72", "77", "83", "88", "94", "99"];
+
+    return highlightValues.includes(jodi) ? `<span class='highlight'>${value}</span>` : value;
+}
 
 $(document).ready(function(){
     console.log("footer code running...");
     GetAllMarketInfo();
 
-
-
-
+    $(document).on("click",".ShowModal",function(){
+        // console.log("modalopen");
+        $('#timeOpenResult').text("");
+        $('#timeCloseResult').text("");
+        $('#timeProviderName').text("");
+        $('#timeOpenResult').text($(this).attr('data-opentime'));
+        $('#timeCloseResult').text($(this).attr('data-closetime'));
+        $('#timeProviderName').text($(this).attr('data-market-name'));
+    });
 });
 
 </script>

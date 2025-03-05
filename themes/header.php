@@ -48,6 +48,12 @@
     <!-- Main Script -->
     <script src="js/s.js"></script>
 
+    <style>
+        .highlight{
+            color: #DE5246;
+        }
+    </style>
+
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-spy" class="position-relative loaded">
 
@@ -55,7 +61,7 @@
 <header class="header-nav position-relative bg-light-gray">
     <div class="container">
         <nav class="navbar navbar-expand-xl navbar-light px-0">
-            <a class="navbar-brand p-0" href="index.html"><img class="img-fluid" src="<?= IMAGE_URL ?>logo.svg" alt="<?php SITE_DOMAIN_NAME ?>"></a>
+            <a class="navbar-brand p-0" href="index.php"><img class="img-fluid" src="<?= IMAGE_URL ?>logo.svg" alt="<?php SITE_DOMAIN_NAME ?>"></a>
             <!-- logo -->
 
             <button class="navbar-toggler bg-white rounded-0 p-0" type="button" data-toggle="collapse"

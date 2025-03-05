@@ -1,0 +1,178 @@
+[
+    {
+        "id": 1,
+        "MarketName": "PREMIUM DAY",
+        "OpenTime": "11:15 AM",
+        "CloseTime": "12:15 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 4,
+        "MarketName": "SRIDEVI",
+        "OpenTime": "11:28 AM",
+        "CloseTime": "12:28 PM",
+        "Schedule": "1,2,3,4,5,6,7",
+        "OpenDigit": "689",
+        "JodiDigit": "34",
+        "CloseDigit": "257",
+        "CreatedOn": "2025-03-02 11:47:38"
+    },
+    {
+        "id": 3,
+        "MarketName": "TIME BAZAR",
+        "OpenTime": "1:05 PM",
+        "CloseTime": "2:05 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 16,
+        "MarketName": "MG DAY",
+        "OpenTime": "1:20 PM",
+        "CloseTime": "3:20 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 17,
+        "MarketName": "MADHUR DAY",
+        "OpenTime": "1:25 PM",
+        "CloseTime": "2:25 PM",
+        "Schedule": "1,2,3,4,5,6,7",
+        "OpenDigit": "368",
+        "JodiDigit": "72",
+        "CloseDigit": "390",
+        "CreatedOn": "2025-03-02 13:50:49"
+    },
+    {
+        "id": 6,
+        "MarketName": "RAJDHANI DAY",
+        "OpenTime": "3:00 PM",
+        "CloseTime": "5:00 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 5,
+        "MarketName": "MILAN DAY",
+        "OpenTime": "3:05 PM",
+        "CloseTime": "5:05 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 2,
+        "MarketName": "SUPREME DAY",
+        "OpenTime": "3:30 PM",
+        "CloseTime": "5:30 PM",
+        "Schedule": "1,2,3,4,5,6,7",
+        "OpenDigit": "557",
+        "JodiDigit": "78",
+        "CloseDigit": "125",
+        "CreatedOn": "2025-03-02 17:01:20"
+    },
+    {
+        "id": 8,
+        "MarketName": "KALYAN",
+        "OpenTime": "4:00 PM",
+        "CloseTime": "6:00 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 9,
+        "MarketName": "SRIDEVI NIGHT",
+        "OpenTime": "7:05 PM",
+        "CloseTime": "8:05 PM",
+        "Schedule": "1,2,3,4,5,6,7",
+        "OpenDigit": "560",
+        "JodiDigit": "1",
+        "CloseDigit": "",
+        "CreatedOn": "2025-03-02 19:27:08"
+    },
+    {
+        "id": 18,
+        "MarketName": "MADHUR NIGHT",
+        "OpenTime": "8:30 PM",
+        "CloseTime": "10:30 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 10,
+        "MarketName": "SUPREME NIGHT",
+        "OpenTime": "8:35 PM",
+        "CloseTime": "10:35 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 11,
+        "MarketName": "MILAN NIGHT",
+        "OpenTime": "9:05 PM",
+        "CloseTime": "11:05 PM",
+        "Schedule": "1,2,3,4,5,6",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 12,
+        "MarketName": "KALYAN NIGHT",
+        "OpenTime": "9:25 PM",
+        "CloseTime": "11:25 PM",
+        "Schedule": "1,2,3,4,5",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 13,
+        "MarketName": "RAJDHANI NIGHT",
+        "OpenTime": "9:30 PM",
+        "CloseTime": "11:40 PM",
+        "Schedule": "1,2,3,4,5",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    },
+    {
+        "id": 14,
+        "MarketName": "MAIN BAZAR",
+        "OpenTime": "9:50 PM",
+        "CloseTime": "11:55 PM",
+        "Schedule": "1,2,3,4,5",
+        "OpenDigit": null,
+        "JodiDigit": null,
+        "CloseDigit": null,
+        "CreatedOn": null
+    }
+]
