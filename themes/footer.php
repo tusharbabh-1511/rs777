@@ -1,6 +1,5 @@
 <!-- start footer -->
-<div class="bg-light-gray has-shapes has-bg-brash bg-brash-top"
-     style="background-image: url(images/brushes/footer.svg)">
+<div class="bg-light-gray has-shapes has-bg-brash bg-brash-top">
     <div class="footer-bottom">
         <div class="container">
             <div class="row chart-links justify-content-center">
@@ -16,13 +15,8 @@
                 <div class="row justify-content-center">
                         <a href="#" class="btn btn-store mx-3">
                             <span class="fa fa-android fa-3x pull-left"></span> 
-                            <span class="btn-label">Download on the</span>
-                            <span class="btn-caption">Google Play</span>
-                        </a>
-                        <a href="#" class="btn btn-store mx-3">
-                            <span class="fa fa-apple fa-3x pull-left"></span> 
-                            <span class="btn-label">Download on the</span>
-                            <span class="btn-caption">App Store</span>
+                            <span class="btn-label">Android App Available</span>
+                            <span class="btn-caption">Download App</span>
                         </a>
                 </div>
             </div>
@@ -30,15 +24,8 @@
             <div class="row mt-3">
                 <div class="col-12">
                     <div class="block border-top text-center content">
-                        Copyright &copy; 2022 <a href="index.html"><?= SITE_DOMAIN_NAME ?></a>. All Rights Reservederved
+                        Copyright &copy; 2025 <a href="index.html"><?= SITE_DOMAIN_NAME ?></a>. All Rights Reserved.
                     </div>
-                    <!-- <div class="block border-top text-center content">
-                        <a href="http://www.dmca.com/Protection/Status.aspx?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
-                           title="DMCA.com Protection Status" class="dmca-badge"> <img
-                                src="../images.dmca.com/Badges/dmca_protected_sml_120me2e8.png?ID=b5ca191e-e799-4b1b-8aa0-61b75b4c4aad"
-                                alt="DMCA.com Protection Status"/></a>
-                        <script src="../images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -65,24 +52,14 @@
                                 </svg>
                                 Result Time
                             </th>
-                            <!-- <th class="t-cell">
-                                <svg viewBox="64 64 896 896" focusable="false" data-icon="clock-circle" width="1em"
-                                     height="1em" fill="currentColor" aria-hidden="true">
-                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
-                                    <path d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"></path>
-                                </svg>
-                                Bid Last Time
-                            </th> -->
                         </tr>
                         <tr id="timeOpen">
                             <th class="t-cell green" id="timeOpenTh">Open</th>
                             <td class="t-cell" id="timeOpenResult"></td>
-                            <!-- <td class="t-cell" id="timeOpenLastBid"></td> -->
                         </tr>
                         <tr id="timeClose">
                             <th class="t-cell red" id="timeCloseTh">Close</th>
                             <td class="t-cell" id="timeCloseResult"></td>
-                            <!-- <td class="t-cell" id="timeCloseLastBid"></td> -->
                         </tr>
                     </table>
                 </div>
@@ -90,26 +67,6 @@
         </div>
     </div>
 </div>
-
-<!-- start of videoModal -->
-<!-- <div class="modal fade rounded" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body p-0 bg-transparent">
-                <button type="button" class="close" style="margin-right: 6px" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="showVideo" src="#"
-                            style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                            allowfullscreen="true"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- end of videoModal -->
 
 <!-- strat scroll to top -->
 <a onclick="window.scrollTo(0, 0)" class="btn btn-primary scroll-to-top-btn smooth-scroll position-fixed">
@@ -119,13 +76,9 @@
     </svg>
 </a>
 <!-- end scroll to top -->
-
-
-<!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"911d5a398ed9f41d","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"7ccc1ee03b524e1ebd1e72da1445bcd8","b":1}' crossorigin="anonymous"></script> -->
 <script>
 let currentPage = window.location.pathname.split("/").pop();
-console.log(currentPage);
-let APIURL = "https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results";
+let APIURL = "https://cors-anywhere.herokuapp.com/https://mgmarket.mkgroup.me/results";//main api call url
 const GameRates = [
     { GameName: "Single Digit", Rate: 9.5 },
     { GameName: "Jodi Digit", Rate: 95.0 },
@@ -343,10 +296,7 @@ function checkTimeStatus(startTime, endTime) {
     {
         return {ClassName : ClassName ,DisplayString : ReturnStr};
     }
-
-    // Step 3: Compare current time with start and end times
     if (start < end) {
-        // The time range is within a single day (e.g., "03:25 PM" to "05:25 PM")
         if (currentMinutes >= start && currentMinutes <= end) {
             // console.log('Current time is between the two times.');
             return createReturnObj("Running For Close","yellow");
@@ -362,7 +312,6 @@ function checkTimeStatus(startTime, endTime) {
     } else {
         console.warn("SOmething went wrong in time matching :");
         return;
-        // The time range spans midnight (e.g., "10:00 PM" to "02:00 AM")
         if (currentMinutes >= start || currentMinutes <= end) {
             console.log('Current time is between the two times.');
         } else if (currentMinutes < start) {
@@ -377,19 +326,16 @@ function groupByWeek(data) {
     let weeks = {};
     data.forEach(item => {
         let date = new Date(item.CreatedOn);
-        let day = date.getDay(); // Get day of the week (0 = Sun, 1 = Mon, ..., 6 = Sat)
+        let day = date.getDay();
 
-        // Ensure week starts from Monday
         let weekStart = new Date(date);
-        weekStart.setDate(date.getDate() - (day === 0 ? 6 : day - 1)); // Adjust to Monday
+        weekStart.setDate(date.getDate() - (day === 0 ? 6 : day - 1));
 
-        let weekKey = weekStart.toISOString().split('T')[0]; // Format YYYY-MM-DD
+        let weekKey = weekStart.toISOString().split('T')[0]; 
         if (!weeks[weekKey]) {
             weeks[weekKey] = { "weekStart": weekStart, "data": {} };
         }
-
-        // Fix day index mapping to ensure Monday is first and Sunday is last
-        let dayIndex = (day + 6) % 7; // Corrects shifting issue
+        let dayIndex = (day + 6) % 7;
 
         weeks[weekKey]["data"][dayIndex] = {
             open: item.OpenDigit,

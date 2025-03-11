@@ -177,17 +177,20 @@
         .btn-store .btn-caption {
         display: block;
         text-align: left;
-        line-height: 1;
+        line-height: 1.2;
         }
 
         .btn-store .btn-caption {
-        font-size: 24px;
+        font-size: 22px;
+        }
+        .all-background-color {
+            background-color: #f6f6f6;
         }
 
     </style>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#navbar-spy" class="position-relative loaded">
+<body id="top" data-spy="scroll" data-target="#navbar-spy" class="position-relative loaded all-background-color">
 
 <!-- start of header -->
 <header class="header-nav position-relative bg-light-gray">

@@ -4,7 +4,7 @@ include_once('themes/header.php');
 
 <!-- start of tools-use -->
 <section class="tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y"
-         style="padding:40px 0px !important; background-image: url(../images/brushes/section-top.svg), url(../images/brushes/section-bottom.svg);">
+         style="padding:40px 0px !important;">
     <div class="container" style="padding:40px 0px !important;">
         <h1 class="h1 mb-20" style="text-align: center" id="ChartHeading"> Jodi Chart</h1>
         <span style="display: block;text-align: center;margin: 16px" id="ChartSubHeading"> Jodi Chart Satta Matka Record Old History Historical Data Bracket Results Chart Online Live Book Digits Numbers</span>

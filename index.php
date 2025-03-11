@@ -4,24 +4,8 @@ include_once('themes/header.php');
 
 <!-- start of banner -->
 <section
-        class="banner position-relative bg-cover-bottom has-shapes bg-light-gray has-bg-brash bg-brash-bottom position-relative"
-        style="background-image: url(images/brushes/banner.svg)" data-aos="fade-in" data-aos-delay="150">
+        class="banner position-relative bg-cover-bottom has-shapes bg-light-gray has-bg-brash bg-brash-bottom position-relative" data-aos="fade-in" data-aos-delay="150">
     <div class="container h-100">
-        <!-- <div class="d-block d-lg-flex no-gutters align-items-center h-100">
-            <div class="col-12 col-xl-8 col-lg-8 order-lg-1">
-                <div class="banner-image has-shapes mb-4 mb-md-5 mb-lg-0">
-                    <img class="img-fluid" src="images/screenshots/banner-shot.png" alt="<?= SITE_DOMAIN_NAME ?> banner image">
-                    <div class="shape-lg bg-tertiary rounded-circle"></div>
-                    <div class="shape-md bg-primary rounded-circle"></div>
-                    <div class="shape-sm bg-secondary rounded-circle"></div>
-                </div>
-            </div>
-
-            <div class="col-xl-5 col-lg-6 order-lg-0" style="text-align:center">
-                <h1><?= SITE_DOMAIN_NAME ?> | <?= SITE_DIAPLAY_NAME ?> | Rs Ji</h1>
-            </div>
-        </div> -->
-
         <!-- start carousel -->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -69,13 +53,8 @@ include_once('themes/header.php');
         <div class="row justify-content-around">
                 <a href="#" class="btn btn-store">
                     <span class="fa fa-android fa-3x pull-left"></span> 
-                    <span class="btn-label">Download on the</span>
-                    <span class="btn-caption">Google Play</span>
-                </a>
-                <a href="#" class="btn btn-store">
-                    <span class="fa fa-apple fa-3x pull-left"></span> 
-                    <span class="btn-label">Download on the</span>
-                    <span class="btn-caption">App Store</span>
+                    <span class="btn-label">Android App Available</span>
+                    <span class="btn-caption">Download App</span>
                 </a>
         </div>
     </div>
@@ -85,54 +64,31 @@ include_once('themes/header.php');
         New Registration On <?= SITE_DOMAIN_NAME ?> Application Is Temporarily Closed. Be Aware Of Fake Apps in The Name Of <?= SITE_DOMAIN_NAME ?>. We Are Not Responsible For Scam And Fraud Done By Fake Applications. Jan hit Mein Jaari.
         </span>
     </div>
-
-    
-
-    <div class="shape-1 shape-sm bg-secondary rounded-circle"></div>
-    
-    
-    <div class="shape-7 shape-xs-2 bg-tertiary rounded-circle"></div>
-    <div class="shape-8 shape-xs-2 bg-primary rounded-circle"></div>
 </section>
 <!-- end of banner -->
 
 <!-- start of tools-use -->
-<section id="rate" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y"
-         style="background-image: url(images/brushes/section-top.svg), url(images/brushes/section-bottom.svg);">
+<section id="rate" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y">
     <div class="container">
         <h2 class="h2 mb-20"><strong>Game Rates</strong></h2>
         <div class="row" data-aos="fade-up" id="gameRateDiv">
         </div>
 
     </div>
-
-    <div class="shape-1 shape-xs bg-secondary rounded-circle"></div>
-    <div class="shape-2 shape-sm bg-primary rounded-circle d-none d-md-block"></div>
-    <div class="shape-4 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-5 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-6 shape-md bg-secondary rounded-circle d-none d-md-block"></div>
 </section>
 <!-- end of tools-use -->
 
 <!-- start of tools-use -->
-<section id="timetable" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y"
-         style="background-image: url(images/brushes/section-top.svg), url(images/brushes/section-bottom.svg);">
+<section id="timetable" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y">
     <div class="container">
         <h2 class="h2 mb-20"><strong>Games</strong></h2>
         <div class="row" data-aos="fade-up" id="homeGamesList">            
         </div>
     </div>
-
-    <div class="shape-1 shape-xs bg-secondary rounded-circle"></div>
-    <div class="shape-2 shape-sm bg-primary rounded-circle d-none d-md-block"></div>
-    <div class="shape-4 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-5 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-6 shape-md bg-secondary rounded-circle d-none d-md-block"></div>
 </section>
 <!-- end of tools-use -->
 
-<section id="timetable" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y"
-         style="background-image: url(images/brushes/section-top.svg), url(images/brushes/section-bottom.svg);">
+<section id="timetable" class="section-padding tools-use-section has-shapes bg-light-gray has-bg-brash bg-brash-y">
     <div class="container">
         <h3 class="h3 mb-20 mt-20"><?= SITE_DOMAIN_NAME ?> - Accurate Satta Matka Charts</h3>
         <p>Welcome to <?= SITE_DOMAIN_NAME ?>, your trusted platform for real-time Satta Matka Charts and historical data. We provide structured Kalyan Panel Charts, Sridevi Charts, Main Bazar Charts, and more, helping users track trends and make better data-driven decisions. With an intuitive design and regular updates, <?= SITE_DOMAIN_NAME ?> is your go-to source for Satta Matka insights.</p>
@@ -210,12 +166,6 @@ include_once('themes/header.php');
             </ul>
         </p>
     </div>
-
-    <div class="shape-1 shape-xs bg-secondary rounded-circle"></div>
-    <div class="shape-2 shape-sm bg-primary rounded-circle d-none d-md-block"></div>
-    <div class="shape-4 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-5 shape-xs bg-tertiary rounded-circle"></div>
-    <div class="shape-6 shape-md bg-secondary rounded-circle d-none d-md-block"></div>
 </section>
 
 <!-- start of terms-&-condition-section -->
