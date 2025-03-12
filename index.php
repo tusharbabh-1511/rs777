@@ -1,3 +1,110 @@
+SELECT
+    t.`transaction_id`,
+    t.transaction_date,
+    DATEDIFF(NOW(), t.transaction_date) AS pending_days,
+    CASE WHEN ex.name <> '' THEN ex.name ELSE exm.name
+    END AS NAME,
+    alm.account_name AS account_name,
+    t.customer_trans_id AS customer_id,
+    CASE WHEN s.amount_adjusted_against_advance_payment = 0 THEN t.balance_amount ELSE s.amount_adjusted_against_advance_payment
+END balance_amount,
+s.ex_name_id AS ex_id,
+alm.current_balance AS current_balance
+FROM transaction
+    t
+INNER JOIN vouchers v ON
+    t.`voucher_id` = v.v_id
+INNER JOIN account_ledger_master alm ON
+    alm.id = t.customer_trans_id
+LEFT JOIN sale s ON
+    s.sale_id = t.transaction_type_id
+LEFT JOIN executive_master ex ON
+    s.ex_name_id = ex.id
+LEFT JOIN executive_master exm ON
+    alm.executive = exm.id
+WHERE
+    (
+        t.balance_amount <> 1 OR s.amount_adjusted_against_advance_payment > 0
+    ) AND t.transaction_type = 'D' AND(v.v_type_id = '1') AND alm.group_acc = '3' AND v.company_id = '1'
+UNION
+SELECT
+    t.`transaction_id`,
+    t.transaction_date,
+    DATEDIFF(NOW(), t.transaction_date) AS pending_days,
+    exm.name AS NAME,
+    alm.account_name AS account_name,
+    t.customer_trans_id AS customer_id,
+    CASE WHEN t.transaction_type = 'C' THEN t.amount * -1 ELSE t.amount
+    END AS amount,
+    alm.executive AS ex_id,
+    alm.current_balance AS current_balance
+FROM transaction
+    t
+INNER JOIN vouchers v ON
+    t.`voucher_id` = v.v_id
+INNER JOIN account_ledger_master alm ON
+    alm.id = t.customer_trans_id
+JOIN executive_master exm ON
+    alm.executive = exm.id
+WHERE
+    t.amount >= 1 AND t.transaction_type = 'C' AND(
+        v.v_type_id = '15' OR v.v_type_id = '18'
+    ) AND alm.group_acc = '3' AND v.company_id = '1'
+UNION
+SELECT
+    t.`transaction_id`,
+    t.transaction_date,
+    DATEDIFF(NOW(), t.transaction_date) AS pending_days,
+    CASE WHEN ex.name <> '' THEN ex.name ELSE exm.name
+    END AS NAME,
+    alm.account_name AS account_name,
+    t.customer_trans_id AS customer_id,
+    (
+        CASE WHEN v.v_type_id = '5' OR v.v_type_id = '6' THEN v_amount ELSE v.advance_payment
+    END
+) * -1 AS balance_amount,
+s.ex_name_id AS ex_id,
+alm.current_balance AS current_balance
+FROM transaction
+    t
+INNER JOIN vouchers v ON
+    t.`voucher_id` = v.v_id
+INNER JOIN account_ledger_master alm ON
+    alm.id = t.customer_trans_id
+LEFT JOIN sale s ON
+    s.sale_id = t.transaction_type_id
+LEFT JOIN executive_master ex ON
+    s.ex_name_id = ex.id
+LEFT JOIN executive_master exm ON
+    alm.executive = exm.id
+WHERE
+    t.balance_amount >= 1 AND t.transaction_type = 'C' AND(v.v_type_id = '7' OR v.v_type_id = '8') AND alm.group_acc = '3' AND v.company_id = '1'
+UNION
+SELECT
+    t.`transaction_id`,
+    t.transaction_date,
+    30 AS pending_days,
+    ex.name AS NAME,
+    alm.account_name AS account_name,
+    alm.id AS customer_id,
+    opening_balance AS balance_amount,
+    ex.name AS ex_id,
+    alm.current_balance AS current_balance
+FROM
+    account_ledger_master alm
+LEFT JOIN transaction t ON
+    alm.id = t.customer_trans_id
+LEFT JOIN executive_master ex ON
+    alm.executive = ex.id
+WHERE
+    1 AND t.transaction_id IS NULL AND alm.group_acc = '3' AND alm.company_id = '1'
+ORDER BY NAME ASC
+    ,
+    account_name ASC,
+    pending_days
+DESC
+    
+
 <?php
 include_once('themes/header.php');
 ?>
@@ -211,7 +318,7 @@ include_once('themes/header.php');
                         <div id="FAQoneCollapseTwo" class="collapse" aria-labelledby="FAQoneHeadingTwo"
                              data-parent="#accordionFAQone">
                             <div class="card-body pt-0   mb-10">
-                                <p>Populer Satta Matka Games Like Kalyan, Sridevi, Milan, Time Bazar, Sara &
+                                <p>Populer Satta Matka Games Like Kalyan, Sridevi, Milan, Time Bazar &
                                     Rajdhani.</p>
                             </div>
                         </div>
@@ -229,7 +336,7 @@ include_once('themes/header.php');
                         <div id="FAQoneCollapsethree" class="collapse" aria-labelledby="FAQoneHeadingthree"
                              data-parent="#accordionFAQone">
                             <div class="card-body pt-0   mb-10">
-                                <p>Yes, Sara International N.V. Have Sub License In Isle Of Man. All Rights That Allows
+                                <p>Yes, Rs Games International N.V. Have Sub License In Isle Of Man. All Rights That Allows
                                     To Operate Software Worldwide.</p>
                             </div>
                         </div>
