@@ -211,7 +211,7 @@ include_once('themes/header.php');
                         <div id="FAQoneCollapseTwo" class="collapse" aria-labelledby="FAQoneHeadingTwo"
                              data-parent="#accordionFAQone">
                             <div class="card-body pt-0   mb-10">
-                                <p>Populer Satta Matka Games Like Kalyan, Sridevi, Milan, Time Bazar, Sara &
+                                <p>Populer Satta Matka Games Like Kalyan, Sridevi, Milan, Time Bazar &
                                     Rajdhani.</p>
                             </div>
                         </div>
@@ -229,7 +229,7 @@ include_once('themes/header.php');
                         <div id="FAQoneCollapsethree" class="collapse" aria-labelledby="FAQoneHeadingthree"
                              data-parent="#accordionFAQone">
                             <div class="card-body pt-0   mb-10">
-                                <p>Yes, Sara International N.V. Have Sub License In Isle Of Man. All Rights That Allows
+                                <p>Yes, Rs Games International N.V. Have Sub License In Isle Of Man. All Rights That Allows
                                     To Operate Software Worldwide.</p>
                             </div>
                         </div>
