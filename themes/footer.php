@@ -282,13 +282,11 @@ function parseTime(timeStr) {
 }
 
 function checkTimeStatus(startTime, endTime) {
-    // Step 1: Parse the times
     const start = parseTime(startTime); // "03:25 PM"
     const end = parseTime(endTime);     // "05:25 PM"
 
     if (start === null || end === null) return;
 
-    // Step 2: Get current time in minutes
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
@@ -350,42 +348,46 @@ function generateTable(weeks) {
     let tbody = $("#chartTable tbody");
     tbody.empty();
 
+    if (!weeks || Object.keys(weeks).length === 0) {
+        console.warn("No data available from API");
+        return; // Stop execution if no data
+    }
+
+    let todayStr = new Date().toISOString().split('T')[0]; // Get today's date in string format
+
     Object.keys(weeks).forEach(weekStart => {
         let row = "<tr>";
+        let weekEnd = new Date(new Date(weekStart).getTime() + 6 * 86400000).toISOString().split('T')[0];
+
         row += `<td class="cc"><span class="cp">${weekStart}</span>
                     <span class="cp">To</span>
-                    <span class="cp">${new Date(new Date(weekStart).getTime() + 6 * 86400000).toISOString().split('T')[0]}</span></td>`;
+                    <span class="cp">${weekEnd}</span></td>`;
 
-        for (let i = 0; i < 7; i++) { // Loop from Monday (0) to Sunday (6)
-            if (weeks[weekStart]["data"][i]) {
+        for (let i = 0; i < 7; i++) {
+            let currentDate = new Date(new Date(weekStart).getTime() + i * 86400000).toISOString().split('T')[0];
+
+            if (currentDate > todayStr) {
+                row += "<td class='cc'></td>"; // Future: Blank
+            } else if (weeks[weekStart]?.data?.[i]) {
                 let { open, jodi, close } = weeks[weekStart]["data"][i];
-                if(chart === 'PANACHART')
-                {
-                    row += `<td class="cc"><span class="cp">${highlight(open,jodi)}</span>
-                            <span>${highlight(jodi,jodi)}</span>
-                            <span class="cp">${highlight(close,jodi)}</span></td>`;
+
+                if (chart === 'PANACHART') {
+                    row += `<td class="cc"><span class="cp">${highlight(open, jodi)}</span>
+                            <span>${highlight(jodi, jodi)}</span>
+                            <span class="cp">${highlight(close, jodi)}</span></td>`;
+                } else if (chart === 'JODICHART') {
+                    row += `<td class="cc">${highlight(jodi, jodi)}</td>`;
                 }
-                else if(chart === 'JODICHART')
-                {
-                    row +=`<td class="cc">${highlight(jodi,jodi)}</td>`;
-                }
-                
             } else {
-                
-                if(chart === 'PANACHART')
-                {
-                    row += "<td class='cc'><span class='cp'>***</span><span>**</span><span class='cp'>***</span> </td>"; // Empty cell
-                }
-                else if(chart === 'JODICHART')
-                {
-                    row += `<td class="cc highlight">**</td>`;
-                }
+                row += `<td class="cc highlight">**</td>`; // Past missing data
             }
         }
+
         row += "</tr>";
         tbody.append(row);
     });
 }
+
 
 function highlight(value,jodi) {
     let highlightValues = ["00", "05", "11", "16", "22", "27", "33", "38", "44", "49", "50", "55", "61", "66", "72", "77", "83", "88", "94", "99"];
